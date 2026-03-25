@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Core Dark Palette ─── */
+  --color-base: #060a13;
+  --color-surface: #0c1222;
+  --color-surface-raised: #111b2e;
+  --color-surface-overlay: #162036;
+  --color-ink: #f1f5f9;
+  --color-ink-muted: #94a3b8;
+  --color-mist: #64748b;
+  --color-paper: #0c1222;
+
+  /* ─── Brand Colors (matched to logo) ─── */
+  --color-brand-blue: #2a72b8;
+  --color-brand-blue-light: #3a8ad4;
+  --color-brand-blue-dim: rgba(42, 114, 184, 0.12);
+  --color-brand-green: #4caf50;
+  --color-brand-green-light: #66bb6a;
+  --color-brand-green-dim: rgba(76, 175, 80, 0.12);
+
+  /* ─── Aliases for templates ─── */
+  --color-gold: #2a72b8;
+  --color-gold-light: #3a8ad4;
+  --color-gold-dim: rgba(42, 114, 184, 0.12);
+  --color-forest: #4caf50;
+  --color-forest-dim: rgba(76, 175, 80, 0.12);
+  --color-rust: #e8972a;
+  --color-rust-dim: rgba(232, 151, 42, 0.12);
+  --color-cyan: #22b8cf;
+
+  /* ─── Borders ─── */
+  --color-border-color: rgba(148, 163, 184, 0.10);
+  --color-border-glow: rgba(42, 114, 184, 0.25);
+
+  /* ─── Typography ─── */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Outfit", monospace;
+}
+
+/* ─── Base Styles ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #060a13;
+  color: #f1f5f9;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0c1222;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* ─── Animations ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-24px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes line-draw {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { r: 4; opacity: 0.8; }
+  50% { r: 6; opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* ─── Glass Card ─── */
+.glass-card {
+  background: rgba(17, 27, 46, 0.5);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(148, 163, 184, 0.07);
+  border-radius: 1.25rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+  border-color: rgba(42, 114, 184, 0.2);
+  background: rgba(17, 27, 46, 0.7);
+  box-shadow: 0 0 40px rgba(42, 114, 184, 0.05), 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Gradient Text (Brand-matched) ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #2a72b8 0%, #3a8ad4 40%, #4caf50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #3a8ad4 0%, #2a72b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Grid Pattern Background ─── */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(42, 114, 184, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 114, 184, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ─── Glow Button (Brand Blue) ─── */
+.btn-primary {
+  background: linear-gradient(135deg, #2a72b8, #2463a0);
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.875rem;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 24px rgba(42, 114, 184, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 44px rgba(42, 114, 184, 0.45), 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #3a8ad4, #2a72b8);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #94a3b8;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.875rem;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  color: #f1f5f9;
+  border-color: rgba(42, 114, 184, 0.35);
+  background: rgba(42, 114, 184, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ─── Section Label Badge ─── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(42, 114, 184, 0.15);
+  background: rgba(42, 114, 184, 0.06);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3a8ad4;
+}
+
+/* ─── Background Graph Lines (decorative) ─── */
+.bg-graph-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.04;
+  pointer-events: none;
+}
+.bg-graph-lines svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Animated SVG line ─── */
+.graph-line-animated {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: line-draw 3s ease-in-out forwards;
+}
+
+/* ─── Page transition ─── */
+.page-enter-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.page-leave-active {
+  transition: opacity 0.2s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.page-leave-to {
+  opacity: 0;
+}
