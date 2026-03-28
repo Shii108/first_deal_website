@@ -49,8 +49,8 @@ onUnmounted(() => {
     <nav :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
       navScrolled
-        ? 'py-3 bg-base/80 backdrop-blur-2xl border-b border-border-color shadow-[0_4px_30px_rgba(0,0,0,0.06)]'
-        : 'py-5 bg-transparent border-b border-transparent',
+        ? 'py-2.5 md:py-3 bg-base/80 backdrop-blur-2xl border-b border-border-color shadow-[0_4px_30px_rgba(0,0,0,0.06)]'
+        : 'py-4 md:py-5 bg-transparent border-b border-transparent',
     ]">
       <div class="max-w-[1400px] mx-auto w-full min-w-0 px-6 md:px-10 flex items-center justify-between">
         <router-link class="flex min-w-0 items-center gap-2.5 no-underline group" to="/" @click="closeMobile">

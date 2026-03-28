@@ -88,8 +88,8 @@ const requestSubscription = async () => {
 </script>
 
 <template>
-  <div class="bg-base pt-24 md:pt-28 min-h-screen">
-    <section class="py-16 md:py-28 px-6 md:px-10 relative overflow-hidden">
+  <div class="bg-base pt-20 md:pt-28 min-h-screen">
+    <section class="pt-12 pb-16 md:py-28 px-6 md:px-10 relative overflow-hidden">
       <div class="absolute inset-0 grid-pattern"></div>
 
       <div class="max-w-[1200px] mx-auto relative z-10">
