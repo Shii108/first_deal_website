@@ -235,6 +235,7 @@ import HomeSections from '@/components/home/HomeSections.vue'
           </div>
         </div>
       </div>
+
     </section>
 
     <HomeSections />

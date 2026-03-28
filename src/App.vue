@@ -199,6 +199,19 @@ onUnmounted(() => {
                 <span class="text-[14px] font-medium">+977 9851088582</span>
               </a>
             </div>
+            <div class="border-t border-border-color pt-5">
+              <div class="text-[11px] font-bold uppercase tracking-[0.15em] text-ink-muted mb-2">Deal Brief</div>
+              <p class="text-[13px] text-ink-muted leading-relaxed mb-2">
+                Receive our monthly market note and sector updates.
+              </p>
+              <router-link
+                to="/deal-brief"
+                class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-blue no-underline transition-colors duration-300 hover:text-brand-green"
+              >
+                Subscribe to Deal Brief
+                <ArrowUpRight :size="13" :stroke-width="2.5" />
+              </router-link>
+            </div>
           </div>
         </div>
 
