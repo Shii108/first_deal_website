@@ -27,12 +27,12 @@ import HomeSections from '@/components/home/HomeSections.vue'
               capital from diaspora investors to PE/VC funds.
             </p>
 
-            <div class="flex flex-wrap gap-4 items-center">
-              <router-link class="btn-primary inline-flex items-center gap-2 text-[15px] no-underline" to="/process">
+            <div class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4 sm:items-center">
+              <router-link class="btn-primary inline-flex w-full items-center justify-center gap-2 text-[15px] no-underline sm:w-auto" to="/process">
                 See Our Process
                 <ArrowRight :size="16" />
               </router-link>
-              <router-link class="btn-ghost inline-flex items-center gap-2 text-[15px] no-underline" to="/sectors">
+              <router-link class="btn-ghost inline-flex w-full items-center justify-center gap-2 text-[15px] no-underline sm:w-auto" to="/sectors">
                 Explore Sectors
               </router-link>
             </div>

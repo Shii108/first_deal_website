@@ -53,9 +53,9 @@ const pipeline = [
 </script>
 
 <template>
-  <div class="bg-base pt-28">
+  <div class="bg-base pt-24 md:pt-28">
     <!-- ═══════════════════ HOW TO WORK WITH US ═══════════════════ -->
-    <section class="py-20 md:py-24 px-6 md:px-10 border-b border-border-color relative">
+    <section class="py-16 md:py-24 px-6 md:px-10 border-b border-border-color relative">
       <div class="absolute inset-0 grid-pattern"></div>
       <div class="absolute top-[30%] right-[20%] w-[400px] h-[400px] bg-brand-blue/[0.04] rounded-full blur-[120px]"></div>
 
@@ -68,10 +68,10 @@ const pipeline = [
         </div>
 
         <!-- Tab Switcher -->
-        <div class="flex gap-2 mb-12 p-1.5 bg-surface-raised rounded-xl w-fit border border-border-color">
+        <div class="flex w-full max-w-[360px] gap-2 mb-12 p-1.5 bg-surface-raised rounded-xl border border-border-color">
           <button @click="switchTab('project')" 
             :class="[
-              'px-6 py-2.5 rounded-lg text-[13px] font-bold uppercase tracking-wide transition-all duration-300',
+              'flex-1 px-4 py-2.5 rounded-lg text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.08em] sm:tracking-wide transition-all duration-300',
               activeTab === 'project' 
                 ? 'bg-brand-blue text-white shadow-[0_0_20px_rgba(42,114,184,0.2)]' 
                 : 'text-mist hover:text-ink'
@@ -80,7 +80,7 @@ const pipeline = [
           </button>
           <button @click="switchTab('investor')" 
             :class="[
-              'px-6 py-2.5 rounded-lg text-[13px] font-bold uppercase tracking-wide transition-all duration-300',
+              'flex-1 px-4 py-2.5 rounded-lg text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.08em] sm:tracking-wide transition-all duration-300',
               activeTab === 'investor' 
                 ? 'bg-brand-blue text-white shadow-[0_0_20px_rgba(42,114,184,0.2)]' 
                 : 'text-mist hover:text-ink'

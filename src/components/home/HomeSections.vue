@@ -214,19 +214,21 @@ const ctaItems = [
               </div>
             </div>
 
-            <div class="relative z-[1] mt-7 pt-6 border-t border-border-color flex items-end justify-between gap-6">
-              <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-ink-muted">
-                Overall Score
-              </div>
-              <div class="text-[clamp(34px,5vw,54px)] font-extrabold leading-none tracking-[-0.03em] text-ink">
-                <span class="text-brand-green">8.0</span>
-                <span class="text-ink/85"> / 10</span>
+            <div class="relative z-[1] mt-6 pt-5 border-t border-border-color md:mt-7 md:pt-6">
+              <div class="flex flex-col items-start gap-3 lg:grid lg:grid-cols-[auto_1fr] lg:items-center lg:gap-x-6">
+                <div class="text-[10px] leading-none md:text-[11px] font-bold uppercase tracking-[0.18em] md:tracking-[0.2em] text-ink-muted">
+                  Overall Score
+                </div>
+                <div class="self-start whitespace-nowrap text-left text-[26px] sm:text-[30px] md:text-[34px] lg:justify-self-end lg:text-right lg:text-[54px] font-extrabold leading-none tracking-[-0.03em] tabular-nums text-ink">
+                  <span class="text-brand-green">8.0</span>
+                  <span class="text-ink/85"> / 10</span>
+                </div>
               </div>
             </div>
 
-            <div class="relative z-[1] mt-5 inline-flex items-center gap-2 rounded-full bg-brand-green/10 border border-brand-green/20 px-4 py-2.5 text-[11px] font-semibold tracking-[0.04em] text-brand-green">
+            <div class="relative z-[1] mt-4 inline-flex max-w-full items-center gap-1.5 rounded-full bg-brand-green/10 border border-brand-green/20 px-3 py-1.5 text-[9px] sm:text-[10px] md:px-4 md:py-2 md:text-[11px] font-semibold tracking-[0.01em] md:tracking-[0.03em] text-brand-green">
               <span>✓</span>
-              <span>Cleared for investor review</span>
+              <span class="truncate">Cleared for investor review</span>
             </div>
           </div>
         </div>

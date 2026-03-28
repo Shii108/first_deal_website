@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { ArrowUpRight, Facebook, Linkedin, Mail, Menu, MessageCircle, X } from 'lucide-vue-next'
 
@@ -26,6 +26,14 @@ const closeMobile = () => {
   mobileMenuOpen.value = false
 }
 
+watch(
+  () => route.fullPath,
+  () => {
+    closeMobile()
+    handleScroll()
+  },
+)
+
 onMounted(() => {
   handleScroll()
   window.addEventListener('scroll', handleScroll, { passive: true })
@@ -37,15 +45,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="bg-base text-ink font-sans min-h-screen flex flex-col">
+  <div class="bg-base text-ink font-sans min-h-screen flex flex-col overflow-x-clip">
     <nav :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
       navScrolled
         ? 'py-3 bg-base/80 backdrop-blur-2xl border-b border-border-color shadow-[0_4px_30px_rgba(0,0,0,0.06)]'
         : 'py-5 bg-transparent border-b border-transparent',
     ]">
-      <div class="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
-        <router-link class="flex items-center gap-2.5 no-underline group" to="/" @click="closeMobile">
+      <div class="max-w-[1400px] mx-auto w-full min-w-0 px-6 md:px-10 flex items-center justify-between">
+        <router-link class="flex min-w-0 items-center gap-2.5 no-underline group" to="/" @click="closeMobile">
           <img
             src="/first-deal-logo.png"
             width="144"
@@ -56,7 +64,7 @@ onUnmounted(() => {
           />
         </router-link>
 
-        <ul class="hidden md:flex gap-1 list-none">
+        <ul class="hidden lg:flex gap-1 list-none">
           <li v-for="link in navLinks" :key="link.to">
             <router-link :to="link.to" :class="[
               'block px-4 py-2 rounded-lg text-[14px] font-medium transition-all duration-300',
@@ -68,7 +76,7 @@ onUnmounted(() => {
         </ul>
 
         <a
-          class="hidden md:inline-flex items-center gap-2 text-[14px] font-semibold text-white btn-primary !py-2.5 !px-5 !rounded-lg"
+          class="hidden lg:inline-flex items-center gap-2 text-[14px] font-semibold text-white btn-primary !py-2.5 !px-5 !rounded-lg"
           href="https://wa.me/9779851088582?text=Hi%20First%20Deal%20Team%2C%20I%27d%20like%20to%20submit%20a%20deal%20for%20review."
           target="_blank"
           rel="noopener noreferrer"
@@ -77,13 +85,13 @@ onUnmounted(() => {
           <ArrowUpRight :size="14" :stroke-width="2.5" />
         </a>
 
-        <button @click="toggleMobile" class="md:hidden p-2 text-ink-muted hover:text-ink transition-colors" aria-label="Toggle navigation">
+        <button @click="toggleMobile" class="lg:hidden shrink-0 p-2 text-ink-muted hover:text-ink transition-colors" aria-label="Toggle navigation">
           <Menu v-if="!mobileMenuOpen" :size="24" />
           <X v-else :size="24" />
         </button>
       </div>
 
-      <div v-if="mobileMenuOpen" class="md:hidden bg-surface/95 backdrop-blur-2xl border-t border-border-color mt-2">
+      <div v-if="mobileMenuOpen" class="lg:hidden mt-2 border-t border-border-color bg-surface/95 backdrop-blur-2xl">
         <div class="px-6 py-6 flex flex-col gap-2">
           <router-link v-for="link in navLinks" :key="link.to" :to="link.to" @click="closeMobile" :class="[
             'block px-4 py-3 rounded-xl text-[15px] font-medium transition-all',
@@ -109,7 +117,7 @@ onUnmounted(() => {
 
     <footer class="bg-surface border-t border-border-color mt-auto">
       <div class="max-w-[1400px] mx-auto px-6 md:px-10 py-16 md:py-20">
-        <div class="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-12 pb-14">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 md:gap-12 pb-14">
           <div class="col-span-2 md:col-span-4">
             <img
               src="/first-deal-logo.png"

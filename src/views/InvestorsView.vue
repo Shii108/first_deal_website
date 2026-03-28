@@ -84,8 +84,8 @@ const investors = [
 </script>
 
 <template>
-  <div class="bg-base pt-28 min-h-screen">
-    <section class="py-20 md:py-28 px-6 md:px-10 relative">
+  <div class="bg-base pt-24 md:pt-28 min-h-screen">
+    <section class="py-16 md:py-28 px-6 md:px-10 relative">
       <div class="absolute inset-0 grid-pattern"></div>
       <div class="absolute top-[30%] left-[20%] w-[400px] h-[400px] bg-brand-blue/[0.04] rounded-full blur-[120px]"></div>
       <div class="absolute bottom-[20%] right-[30%] w-[350px] h-[350px] bg-brand-green/[0.04] rounded-full blur-[100px]"></div>
