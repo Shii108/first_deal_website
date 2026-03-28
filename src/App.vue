@@ -52,7 +52,6 @@ onUnmounted(() => {
             height="36"
             alt="First Deal Nepal"
             class="brand-logo"
-            fetchpriority="high"
             decoding="async"
           />
         </router-link>
