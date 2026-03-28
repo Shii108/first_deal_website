@@ -1,6 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
-import gsap from 'gsap'
+import { ref } from 'vue'
 import { Send, ClipboardCheck, PackageCheck, Handshake, UserPlus, Lock, FileSearch, CircleCheckBig, ArrowRight } from 'lucide-vue-next'
 
 const activeTab = ref('project')
@@ -26,7 +25,6 @@ const investorSteps = [
 const pipeline = ['Discovery', 'Deal Scoring', 'Packaging', 'Matching', 'Close & Monitor']
 const pipelineIcons = [FileSearch, ClipboardCheck, PackageCheck, Handshake, CircleCheckBig]
 
-const stepsRef = ref(null)
 </script>
 
 <template>
@@ -67,7 +65,7 @@ const stepsRef = ref(null)
         </div>
 
         <!-- Steps Grid -->
-        <div ref="stepsRef" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           <div v-for="step in (activeTab === 'project' ? projectSteps : investorSteps)" :key="step.num + activeTab"
             class="step-card glass-card p-7 group hover:-translate-y-1 transition-all duration-300">
             <div class="flex items-center gap-3 mb-6">

@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus-jakarta-sans-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus-jakarta-sans-500.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus-jakarta-sans-600.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus-jakarta-sans-700.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus-jakarta-sans-800.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+  font-display: fallback;
+}
+
 @theme {
   /* ─── Core Light Palette ─── */
   --color-base: #f8f9fb;
@@ -34,21 +74,34 @@
   --color-border-glow: rgba(42, 114, 184, 0.18);
 
   /* ─── Typography ─── */
-  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-  --font-mono: "Outfit", monospace;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 /* ─── Base Styles ─── */
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 body {
   background-color: #f8f9fb;
   color: #1a1f2e;
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+.brand-logo {
+  width: 9rem;
+  height: 2.25rem;
+  object-fit: contain;
 }
 
 /* ─── Scrollbar ─── */
@@ -226,17 +279,16 @@ body {
   animation: line-draw 3s ease-in-out forwards;
 }
 
-/* ─── Page transition ─── */
-.page-enter-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.page-leave-active {
-  transition: opacity 0.2s ease;
-}
-.page-enter-from {
-  opacity: 0;
-  transform: translateY(12px);
-}
-.page-leave-to {
-  opacity: 0;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
