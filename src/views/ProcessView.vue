@@ -22,8 +22,33 @@ const investorSteps = [
   { num: '04', title: 'Close', desc: 'Execute the transaction with structured terms.', icon: CircleCheckBig },
 ]
 
-const pipeline = ['Discovery', 'Deal Scoring', 'Packaging', 'Matching', 'Close & Monitor']
-const pipelineIcons = [FileSearch, ClipboardCheck, PackageCheck, Handshake, CircleCheckBig]
+const pipeline = [
+  {
+    title: 'Discovery',
+    desc: 'We source opportunities at field level, from licensed hydro sites to emerging operators that are still off-market.',
+    icon: FileSearch,
+  },
+  {
+    title: 'Deal Scoring',
+    desc: 'We assess legal readiness, financial quality, management strength, and exit potential before a mandate moves ahead.',
+    icon: ClipboardCheck,
+  },
+  {
+    title: 'Packaging',
+    desc: 'We prepare the investment memo, financial model, and deal structure so the opportunity is clear and diligence-ready.',
+    icon: PackageCheck,
+  },
+  {
+    title: 'Matching',
+    desc: 'Each deal is introduced only to investors whose mandate, ticket size, and risk profile are genuinely aligned.',
+    icon: Handshake,
+  },
+  {
+    title: 'Close & Monitor',
+    desc: 'We support execution through closing and stay involved with reporting, follow-through, and investor communication.',
+    icon: CircleCheckBig,
+  },
+]
 
 </script>
 
@@ -96,14 +121,15 @@ const pipelineIcons = [FileSearch, ClipboardCheck, PackageCheck, Handshake, Circ
 
         <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
           <div v-for="(stage, idx) in pipeline" :key="idx"
-            class="pipeline-card glass-card p-5 relative group hover:-translate-y-1 transition-all duration-300">
+            class="pipeline-card glass-card p-5 md:p-6 relative group hover:-translate-y-1 transition-all duration-300 min-h-[220px]">
             <div class="flex items-center gap-2 mb-6">
               <div :class="['w-8 h-8 rounded-lg flex items-center justify-center', idx % 2 === 0 ? 'bg-brand-blue/10' : 'bg-brand-green/10']">
-                <component :is="pipelineIcons[idx]" :size="14" :class="idx % 2 === 0 ? 'text-brand-blue' : 'text-brand-green'" />
+                <component :is="stage.icon" :size="14" :class="idx % 2 === 0 ? 'text-brand-blue' : 'text-brand-green'" />
               </div>
               <span class="text-[11px] font-bold tracking-[0.12em] text-brand-blue uppercase">Step 0{{ idx + 1 }}</span>
             </div>
-            <div class="text-[16px] font-bold text-ink group-hover:text-brand-blue transition-colors leading-snug">{{ stage }}</div>
+            <div class="text-[16px] md:text-[18px] font-bold text-ink group-hover:text-brand-blue transition-colors leading-snug mb-3">{{ stage.title }}</div>
+            <p class="text-[13px] text-mist leading-relaxed max-w-[22ch]">{{ stage.desc }}</p>
             
             <div v-if="idx !== 4" class="hidden md:flex absolute -right-[10px] top-1/2 -translate-y-1/2 w-5 h-5 bg-surface-raised border border-border-color rounded-full items-center justify-center z-10 text-mist group-hover:text-brand-blue group-hover:border-brand-blue/25 transition-all">
               <ArrowRight :size="10" />

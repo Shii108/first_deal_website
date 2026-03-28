@@ -6,8 +6,9 @@ const sectors = [
     num: '01',
     title: 'Hydropower',
     desc: 'Nepal holds 83,000 MW of hydropower potential — less than 3% developed. We focus on micro and run-of-river projects.',
-    range: '$500K–5M',
-    irr: '14–22% IRR',
+    range: '500K–5M',
+    irr: '14–22%',
+    tags: ['Run-of-River', 'Micro Hydro', 'PPA Backed', 'Impact-Eligible'],
     icon: Zap,
     accentBg: 'bg-brand-blue/10',
     accentBorder: 'group-hover:border-brand-blue/25',
@@ -19,8 +20,9 @@ const sectors = [
     num: '02',
     title: 'Hospitality',
     desc: 'Global demand for authentic Himalayan experiences is surging. Connecting boutique eco-lodges & retreats.',
-    range: '$200K–2M',
-    irr: '12–18% IRR',
+    range: '200K–2M',
+    irr: '12–18%',
+    tags: ['Eco-Lodge', 'Wellness', 'Trekking Hubs', 'Boutique'],
     icon: Mountain,
     accentBg: 'bg-brand-green/10',
     accentBorder: 'group-hover:border-brand-green/25',
@@ -32,8 +34,9 @@ const sectors = [
     num: '03',
     title: 'Food & Agri',
     desc: 'Himalayan herbs, tea, and superfoods. Originating deals around agri-processing and export infrastructure.',
-    range: '$100K–1.5M',
-    irr: '16–28% IRR',
+    range: '100K–1.5M',
+    irr: '16–28%',
+    tags: ['Superfoods', 'Organic Export', 'Cold Chain', 'F&B Brands'],
     icon: Leaf,
     accentBg: 'bg-rust/10',
     accentBorder: 'group-hover:border-rust/25',
@@ -45,8 +48,9 @@ const sectors = [
     num: '04',
     title: 'Real Estate',
     desc: 'Mid-scale commercial developments. Introducing structured debt tools absent from Nepal\'s market today.',
-    range: '$300K–3M',
-    irr: '10–16% IRR',
+    range: '300K–3M',
+    irr: '10–16%',
+    tags: ['Commercial', 'Mixed-Use', 'Structured Debt', 'Co-Investment'],
     icon: Building2,
     accentBg: 'bg-brand-blue/10',
     accentBorder: 'group-hover:border-brand-blue/25',
@@ -78,23 +82,35 @@ const sectors = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           <div v-for="sector in sectors" :key="sector.num"
             :class="[
-              'sector-card glass-card p-7 flex flex-col justify-between min-h-[380px] group cursor-pointer relative overflow-hidden hover:-translate-y-2 transition-all duration-400',
+              'sector-card glass-card p-7 flex flex-col justify-between min-h-[405px] group cursor-pointer relative overflow-hidden hover:-translate-y-2 transition-all duration-400',
               sector.accentBorder
             ]">
             <div :class="['absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500', sector.gradient]"></div>
 
-            <div>
+            <div class="flex flex-col h-full">
               <div class="text-[12px] font-bold tracking-[0.15em] uppercase text-mist mb-6">{{ sector.num }} — Sector</div>
               <div :class="['w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-border-color transition-colors', sector.accentBg]">
                 <component :is="sector.icon" :size="20" :class="sector.accentColor" />
               </div>
               <div :class="['text-xl font-bold text-ink mb-3 transition-colors leading-snug', sector.accentText]">{{ sector.title }}</div>
-              <p class="text-[14px] text-mist leading-relaxed">{{ sector.desc }}</p>
+              <p class="text-[14px] text-mist leading-relaxed mb-6">{{ sector.desc }}</p>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  v-for="tag in sector.tags"
+                  :key="tag"
+                  class="inline-flex items-center border border-border-color px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-mist/90 bg-surface-overlay/35"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+
+              <div class="mt-auto"></div>
             </div>
 
             <div :class="['text-[13px] font-bold text-mist pt-5 border-t border-border-color flex justify-between items-center transition-colors', sector.accentText]">
-              <span>{{ sector.range }}</span>
-              <span>{{ sector.irr }}</span>
+              <span>USD {{ sector.range }}</span>
+              <span>{{ sector.irr }} IRR</span>
             </div>
           </div>
         </div>

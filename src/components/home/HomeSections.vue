@@ -79,6 +79,15 @@ const slateMetrics = [
   },
 ]
 
+const readinessDimensions = [
+  { label: 'Legal clarity', score: '9.0', fill: '90%' },
+  { label: 'Financial model', score: '8.0', fill: '80%' },
+  { label: 'Management team', score: '7.5', fill: '75%' },
+  { label: 'Exit potential', score: '7.0', fill: '70%' },
+  { label: 'Market validation', score: '8.5', fill: '85%' },
+  { label: 'ESG compliance', score: '8.0', fill: '80%' },
+]
+
 const ctaItems = [
   { title: 'Submit a Project', desc: 'Share your deal for review', icon: BarChart3 },
   { title: 'Register as Investor', desc: 'Access curated opportunities', icon: Users },
@@ -149,6 +158,75 @@ const ctaItems = [
                   {{ item.label }}
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-24 px-6 md:px-10 relative overflow-hidden border-t border-border-color">
+      <div class="absolute inset-0 grid-pattern"></div>
+      <div class="absolute top-[18%] left-[14%] w-[320px] h-[320px] bg-brand-green/[0.05] rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-[12%] right-[12%] w-[360px] h-[360px] bg-brand-blue/[0.04] rounded-full blur-[120px]"></div>
+
+      <div class="max-w-[1200px] mx-auto relative z-10">
+        <div class="grid grid-cols-1 xl:grid-cols-[0.94fr_1.06fr] gap-8 xl:gap-12 items-center">
+          <div>
+            <h2 class="text-[clamp(30px,4vw,52px)] font-extrabold leading-[1.05] tracking-tight text-ink mb-5 max-w-[640px]">
+              The <span class="gradient-text">Deal Readiness</span> Score
+            </h2>
+
+            <p class="text-[15px] md:text-[17px] text-mist leading-relaxed max-w-[580px] mb-8">
+              Every opportunity is reviewed across six core dimensions before it reaches our investor network. Only
+              deals that meet our internal bar move forward.
+            </p>
+
+            <blockquote class="border-l-2 border-brand-blue/40 bg-surface-raised/80 px-5 py-4 max-w-[620px]">
+              <p class="text-[14px] md:text-[15px] leading-relaxed text-ink-muted">
+                We filter rigorously upfront, so investors spend time on the opportunities that are ready, not the ones
+                that still need work.
+              </p>
+            </blockquote>
+          </div>
+
+          <div class="relative rounded-[24px] border border-brand-blue/12 bg-white/88 backdrop-blur-sm px-5 py-6 md:px-7 md:py-7 shadow-[0_22px_60px_rgba(42,114,184,0.08)] overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(76,175,80,0.06),transparent_34%)]"></div>
+
+            <div class="relative z-[1] text-[10px] md:text-[11px] font-bold uppercase tracking-[0.24em] text-brand-blue mb-8">
+              Sample Deal Readiness Assessment
+            </div>
+
+            <div class="relative z-[1] space-y-5">
+              <div
+                v-for="item in readinessDimensions"
+                :key="item.label"
+                class="grid grid-cols-[minmax(0,112px)_1fr_34px] md:grid-cols-[minmax(0,162px)_1fr_42px] items-center gap-3 md:gap-4"
+              >
+                <div class="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-ink-muted">
+                  {{ item.label }}
+                </div>
+                <div class="h-[4px] bg-surface-overlay overflow-hidden rounded-full">
+                  <div class="h-full bg-gradient-to-r from-brand-blue-light to-brand-green" :style="{ width: item.fill }"></div>
+                </div>
+                <div class="text-right text-[16px] font-semibold tabular-nums text-ink">
+                  {{ item.score }}
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-[1] mt-7 pt-6 border-t border-border-color flex items-end justify-between gap-6">
+              <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-ink-muted">
+                Overall Score
+              </div>
+              <div class="text-[clamp(34px,5vw,54px)] font-extrabold leading-none tracking-[-0.03em] text-ink">
+                <span class="text-brand-green">8.0</span>
+                <span class="text-ink/85"> / 10</span>
+              </div>
+            </div>
+
+            <div class="relative z-[1] mt-5 inline-flex items-center gap-2 rounded-full bg-brand-green/10 border border-brand-green/20 px-4 py-2.5 text-[11px] font-semibold tracking-[0.04em] text-brand-green">
+              <span>✓</span>
+              <span>Cleared for investor review</span>
             </div>
           </div>
         </div>

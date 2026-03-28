@@ -24,6 +24,11 @@ const router = createRouter({
       name: "investors",
       component: () => import("../views/InvestorsView.vue"),
     },
+    {
+      path: "/deal-brief",
+      name: "deal-brief",
+      component: () => import("../views/DealBriefView.vue"),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

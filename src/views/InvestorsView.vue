@@ -1,5 +1,5 @@
 <script setup>
-import { Globe, Landmark, TrendingUp } from 'lucide-vue-next'
+import { Building2, Globe, Landmark, Leaf, TrendingUp, Users } from 'lucide-vue-next'
 
 const investors = [
   {
@@ -8,6 +8,7 @@ const investors = [
     title: 'Nepali Abroad',
     desc: '3M+ Nepalis in the Gulf, US, UK, and Australia. They want home-country exposure but need a trusted entry point.',
     range: '$25K – $250K',
+    unit: 'per deal',
     icon: Globe,
     accentBg: 'bg-brand-blue/10',
     accentColor: 'text-brand-blue',
@@ -20,6 +21,7 @@ const investors = [
     title: 'Nepal Family Offices',
     desc: 'Business families diversifying beyond trading and real estate. We bring structured alternative assets.',
     range: '$100K – $1M',
+    unit: 'per deal',
     icon: Landmark,
     accentBg: 'bg-brand-green/10',
     accentColor: 'text-brand-green',
@@ -32,11 +34,51 @@ const investors = [
     title: 'South Asia Funds',
     desc: "Funds seeking frontier exposure. Nepal's risk-return profile is compelling when properly structured.",
     range: '$500K – $5M',
+    unit: 'per deal',
     icon: TrendingUp,
     accentBg: 'bg-brand-blue/10',
     accentColor: 'text-brand-blue',
     gradient: 'from-brand-blue to-cyan',
     borderHover: 'group-hover:border-brand-blue/20',
+  },
+  {
+    num: '04',
+    label: 'Impact Capital',
+    title: 'DFIs & ESG Funds',
+    desc: 'IFC, ADB, DFID, and climate-focused funds. Hydropower, sustainable agriculture, and eco-hospitality align directly with their mandates.',
+    range: '$1M – $10M',
+    unit: 'per deal',
+    icon: Leaf,
+    accentBg: 'bg-brand-green/10',
+    accentColor: 'text-brand-green',
+    gradient: 'from-brand-green to-emerald-400',
+    borderHover: 'group-hover:border-brand-green/20',
+  },
+  {
+    num: '05',
+    label: 'Syndication',
+    title: 'SPV Co-investors',
+    desc: 'For deals too large for one investor, we structure special purpose vehicles that allow 5–10 investors to participate at smaller ticket sizes.',
+    range: '$50K – $500K',
+    unit: 'per investor',
+    icon: Users,
+    accentBg: 'bg-brand-blue/10',
+    accentColor: 'text-brand-blue',
+    gradient: 'from-brand-blue to-sky-400',
+    borderHover: 'group-hover:border-brand-blue/20',
+  },
+  {
+    num: '06',
+    label: 'Strategic',
+    title: 'Corporate Investors',
+    desc: "Regional corporates seeking strategic stakes in Nepal's infrastructure, food supply chains, or tourism assets as part of broader regional expansion.",
+    range: '$500K – $5M',
+    unit: 'per deal',
+    icon: Building2,
+    accentBg: 'bg-brand-green/10',
+    accentColor: 'text-brand-green',
+    gradient: 'from-brand-green to-lime-400',
+    borderHover: 'group-hover:border-brand-green/20',
   },
 ]
 </script>
@@ -78,7 +120,7 @@ const investors = [
 
             <div :class="['text-[15px] font-bold text-ink border-t border-border-color pt-5 transition-colors', 'group-hover:' + inv.accentColor]">
               {{ inv.range }}
-              <span class="text-[12px] font-semibold text-mist uppercase tracking-wide ml-1">per deal</span>
+              <span class="text-[12px] font-semibold text-mist uppercase tracking-wide ml-1">{{ inv.unit }}</span>
             </div>
           </div>
         </div>

@@ -4,13 +4,7 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/logo-160.jpeg
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
-
-/logo-320.jpeg
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
-
-/logo-icon.jpeg
+/first-deal-logo.png
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
 
 /favicon.ico

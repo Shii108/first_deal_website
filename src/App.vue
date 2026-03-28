@@ -11,6 +11,7 @@ const navLinks = [
   { to: '/process', label: 'Our Process' },
   { to: '/sectors', label: 'Sectors' },
   { to: '/investors', label: 'Investors' },
+  { to: '/deal-brief', label: 'Deal Brief' },
 ]
 
 const handleScroll = () => {
@@ -46,13 +47,11 @@ onUnmounted(() => {
       <div class="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
         <router-link class="flex items-center gap-2.5 no-underline group" to="/" @click="closeMobile">
           <img
-            src="/logo-320.jpeg"
-            srcset="/logo-160.jpeg 160w, /logo-320.jpeg 320w"
-            sizes="144px"
+            src="/first-deal-logo.png"
             width="144"
             height="36"
             alt="First Deal Nepal"
-            class="brand-logo rounded-md"
+            class="brand-logo"
             fetchpriority="high"
             decoding="async"
           />
@@ -114,13 +113,11 @@ onUnmounted(() => {
         <div class="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-12 pb-14">
           <div class="col-span-2 md:col-span-4">
             <img
-              src="/logo-320.jpeg"
-              srcset="/logo-160.jpeg 160w, /logo-320.jpeg 320w"
-              sizes="144px"
+              src="/first-deal-logo.png"
               width="144"
               height="36"
               alt="First Deal Nepal"
-              class="brand-logo mb-5 rounded-md opacity-70 hover:opacity-100 transition-opacity"
+              class="brand-logo mb-5 opacity-70 hover:opacity-100 transition-opacity"
               loading="lazy"
               decoding="async"
             />
@@ -184,11 +181,11 @@ onUnmounted(() => {
           <div class="col-span-2 md:col-span-4">
             <div class="text-[11px] font-bold uppercase tracking-[0.15em] text-ink-muted mb-5">Get in touch</div>
             <div class="flex flex-col gap-4 mb-6">
-              <a href="mailto:hello@firstdealnepal.com" class="group flex items-center gap-3 text-ink no-underline hover:text-brand-blue transition-colors">
+              <a href="mailto:info@firstdealnepal.com" class="group flex items-center gap-3 text-ink no-underline hover:text-brand-blue transition-colors">
                 <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-blue/8 text-brand-blue group-hover:bg-brand-blue/15 transition-colors">
                   <Mail :size="14" />
                 </div>
-                <span class="text-[14px] font-medium">hello@firstdealnepal.com</span>
+                <span class="text-[14px] font-medium">info@firstdealnepal.com</span>
               </a>
               <a
                 href="https://wa.me/9779851088582"
